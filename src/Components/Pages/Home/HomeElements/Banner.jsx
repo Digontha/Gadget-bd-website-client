@@ -15,8 +15,8 @@ const Banner = () => {
         <div className="hero h-[80vh] " style={BgIMG}>
             <div className="hero-content">
                 <div className="  p-3 rounded-xl ">
-                    <h1 className="md:text-5xl font-bold text-orange-800 ">Feel free to Shopping<br /> with us....</h1>
-                    <p className="py-6 md:text-2xl text-white font-bold ">Have A GOOD DAY</p>
+                    <h1 className="md:text-5xl font-bold text-orange-800 font-mono">Feel free to Shopping<br /> with us....</h1>
+                    <p className="py-6 md:text-2xl text-blue-500 font-bold font-serif ">Have A GOOD DAY</p>
                 </div>
             </div>
         </div>
