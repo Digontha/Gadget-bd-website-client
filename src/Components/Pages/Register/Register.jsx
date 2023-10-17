@@ -1,9 +1,13 @@
 
+import { useContext } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
+    const {createUser,googleLogin} = useContext(AuthContext)
     const handleRegister = (e) =>{
 
         e.preventDefault();
@@ -13,31 +17,42 @@ const Register = () => {
         const password = e.target.password.value
         console.log(name ,image, email, password);
    
-    //    if(!/^(?=.*[A-Z])(?=.*[!@#$%^&*()_+={}\[\]:;"'<>,.?/\\|`])[A-Za-z0-9!@#$%^&*()_+={}\[\]:;"'<>,.?/\\|`]{7,}$/.test(password)){
+       if(!/^(?=.*[A-Z])(?=.*[!@#$%^&*()_+={}\[\]:;"'<>,.?/\\|`])[A-Za-z0-9!@#$%^&*()_+={}\[\]:;"'<>,.?/\\|`]{7,}$/.test(password)){
         
-    //      swal("error", "password must be at least 6 characters one capital letter and one special letter", "error");
-    //    }else{
-    //      createUser(email, password,name, image)
-    //      .then(res=>{
-    //       console.log(res.user);
-    //       swal("success", "Your account create successfully", "success");
-    //       updateProfile(res.user, { displayName: name, photoURL: image })
-    //                    .then(()=> {
+         swal("error", "password must be at least 6 characters one capital letter and one special letter", "error");
+       }else{
+         createUser(email, password,name, image)
+         .then(res=>{
+          console.log(res.user);
+          swal("success", "Your account create successfully", "success");
+          updateProfile(res.user, { displayName: name, photoURL: image })
+                       .then(()=> {
                          
-    //                    })
-    //          e.target.reset()
-    //      })
-    //      .catch(()=>{
+                       })
+             e.target.reset()
+         })
+         .catch(()=>{
         
-    //       swal("error", "something went wrong", "error");
-    //      })
-    //    }
+          swal("error", "something went wrong", "error");
+         })
+       }
    
       
         
         
      }
-   
+     const handleGoogle=()=>{
+        googleLogin()
+        .then(()=>{
+        
+          swal("success", "Your account create successfully", "success");
+        })
+        .catch(()=>{
+        
+          swal("error", "something went wrong", "error");
+        })
+      }
+    
        return (
          <>
            <div>
@@ -76,7 +91,7 @@ const Register = () => {
                </form>
                <Link className="text-center" to="/login"><p>Have a account? <span className="font-bold btn btn-link">login</span></p></Link>
                <div className="p-5">
-               <button className="btn btn-sm btn-neutral w-full"><FcGoogle></FcGoogle> Google</button>
+               <button onClick={handleGoogle}  className="btn btn-sm btn-neutral w-full"><FcGoogle></FcGoogle> Google</button>
                </div>
              </div>
             

@@ -1,13 +1,51 @@
 
+import { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import swal from "sweetalert";
+
+
 const Login = () => {
+
+    const {signInUser,user,googleLogin} = useContext(AuthContext)
+  console.log(user);
+
     const handleLogin = (e) =>{
         e.preventDefault();
         const email = e.target.email.value     
         const password = e.target.password.value  
         console.log(email, password);
-   
+
+       
+        
+           signInUser(email, password)
+           .then(()=>{
+        
+            swal("Logged", "You login successfully", "success");
+            e.target.reset()
+            
+          
+           })
+           .catch(()=>{
+           
+            swal("Error", "Your email or  password dose not match", "error");
+           })
+         
+         
+        
+      
+        
+ }
+ const handleGoogle=()=>{
+   googleLogin()
+   .then(()=>{
+     swal("Logged", "You login successfully", "success");
+     
+   })
+   .catch(()=>{
+     swal("Error", "something went wrong", "error");
+   })
  }
 
 
@@ -36,7 +74,7 @@ const Login = () => {
            </form>
            <Link className="text-center" to="/register"><p>Haven't any account? <span className="font-bold btn btn-link">register</span></p></Link>
            <div className="p-5">
-           <button className="btn btn-sm btn-neutral w-full"><FcGoogle></FcGoogle> Google</button>
+           <button onClick={handleGoogle} className="btn btn-sm btn-neutral w-full"><FcGoogle></FcGoogle> Google</button>
            </div>
          </div>
        </div>
