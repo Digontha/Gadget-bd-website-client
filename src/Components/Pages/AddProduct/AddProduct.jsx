@@ -13,6 +13,18 @@ const AddProduct = () => {
         const photo=form.photo.value;
         const allProduct= {name, brand, type, price, description, rating, photo};
         console.log(allProduct);
+
+        fetch("http://localhost:5000/product",{
+            method: "POST",
+            headers:{
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(allProduct)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+        })
    
     }
     return (
