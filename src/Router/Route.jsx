@@ -8,12 +8,16 @@ import AddProduct from "../Components/Pages/AddProduct/AddProduct";
 import Phone from "../Components/Pages/Home/PhoneCard/Phone";
 import Login from "../Components/Pages/Login/Login";
 import Register from "../Components/Pages/Register/Register";
+import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
+import MyCart from "../Components/Pages/MyCart/MyCart";
+import ErrorPage from "../Components/Pages/ErrorPage/ErrorPage";
 
   
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Root></Root>,
+      errorElement:<ErrorPage></ErrorPage>,
       children:[
         {
             path: "/",
@@ -22,14 +26,19 @@ import Register from "../Components/Pages/Register/Register";
         },
         {
           path: "/:brand",
-          element:<Phone></Phone>,
+          element:<PrivateRoute><Phone></Phone></PrivateRoute>,
           loader:({params})=>fetch(`http://localhost:5000/product/${params.brand}`)
      
         }
         ,
         {
             path:"/addProduct",
-            element:<AddProduct></AddProduct>
+            element:<PrivateRoute><AddProduct></AddProduct></PrivateRoute>
+        }
+        ,
+        {
+          path:"/myCart",
+          element:<PrivateRoute><MyCart></MyCart></PrivateRoute>
         }
         ,
         {
