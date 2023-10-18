@@ -21,8 +21,9 @@ import Register from "../Components/Pages/Register/Register";
             loader:()=>fetch("http://localhost:5000/product")
         },
         {
-          path: "/product/:brand",
+          path: "/:brand",
           element:<Phone></Phone>,
+          loader:({params})=>fetch(`http://localhost:5000/product/${params.brand}`)
      
         }
         ,

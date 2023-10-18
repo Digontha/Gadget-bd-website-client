@@ -1,11 +1,14 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import { useLoaderData } from 'react-router-dom';
 
 
 
 const Phone = () => {
- 
+  const data = useLoaderData()
+
+  console.log(data);
     return (
         <>
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
