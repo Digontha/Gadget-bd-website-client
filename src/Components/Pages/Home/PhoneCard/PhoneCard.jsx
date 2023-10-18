@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const PhoneCard = ({ item }) => {
   console.log(item);
-  const { name, brand_name, price, type, rating, img } = item || {};
+  const {_id, name, brand_name, price, type, rating, img } = item || {};
 
   console.log(name, brand_name, price, type, rating, img);
 
@@ -18,7 +18,7 @@ const PhoneCard = ({ item }) => {
         <div className="card-body">
           <h2 className="card-title">{brand_name}</h2>
           <p>{name}</p>
-          <p>{price}</p>
+          <p>${price}</p>
           <p>{type}</p>
           <p className="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
             <Rating
@@ -36,8 +36,9 @@ const PhoneCard = ({ item }) => {
               }
             />
           </p>
-          <div className="">
-            <Link><button className="btn btn-primary w-full">Add to cart</button></Link>
+          <div className="flex justify-between">
+            <Link to={`/details/brand_name/${_id}`}><button className="btn btn-neutral w-full">Details</button></Link>
+            <Link to={`/update/brand_name/${_id}`}><button className="btn btn-warning w-full">Update</button></Link>
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import swal from "sweetalert";
 
 const AddProduct = () => {
 
@@ -10,9 +11,9 @@ const AddProduct = () => {
         const price = form.price.value;
         const description = form.description.value;
         const rating = form.rating.value;
-        const photo = form.photo.value;
+        const img = form.img.value;
 
-        const allProduct = { name, brand_name, type, price, description, rating, photo };
+        const allProduct = { name, brand_name, type, price, description, rating, img };
         console.log(allProduct);
 
         fetch("http://localhost:5000/product", {
@@ -25,6 +26,8 @@ const AddProduct = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
+                swal("Good job!", "Your product add successfully!", "success");
+                form.reset();
             })
 
     }
@@ -63,7 +66,7 @@ const AddProduct = () => {
                     </div>
 
                     <div className="lg:flex gap-4 mb-5">
-                        <input type="text" placeholder="photo URL" name="photo" className="input input-bordered w-full " />
+                        <input type="text" placeholder="photo URL" name="img" className="input input-bordered w-full " />
                     </div>
                     <button className="btn btn-neutral btn-block">Add product</button>
                 </form>

@@ -11,6 +11,8 @@ import Register from "../Components/Pages/Register/Register";
 import PrivateRoute from "../Components/PrivateRoute/PrivateRoute";
 import MyCart from "../Components/Pages/MyCart/MyCart";
 import ErrorPage from "../Components/Pages/ErrorPage/ErrorPage";
+import PhoneDetails from "../Components/Pages/Home/PhoneCard/PhoneDetails";
+import Update from "../Components/Pages/Home/PhoneCard/Update";
 
   
   const router = createBrowserRouter([
@@ -39,6 +41,20 @@ import ErrorPage from "../Components/Pages/ErrorPage/ErrorPage";
         {
           path:"/myCart",
           element:<PrivateRoute><MyCart></MyCart></PrivateRoute>
+        }
+        ,
+        {
+              path:"/details/brand_name/:id",
+              element:<PrivateRoute><PhoneDetails></PhoneDetails></PrivateRoute>,
+              loader:({params})=>fetch(`http://localhost:5000/product/brand_name/${params.id}`)
+
+        }
+        ,
+        {
+              path:"/update/brand_name/:id",
+              element:<Update></Update>,
+              loader:({params})=>fetch(`http://localhost:5000/product/brand_name/${params.id}`)
+
         }
         ,
         {
