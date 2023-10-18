@@ -1,26 +1,26 @@
 [
     {
-      "brand_name": "Apple",
+      "brand": "Apple",
       "image_url": "https://th.bing.com/th/id/R.fa5e67376018e06bd8ffb06b3129a717?rik=7G91umXpvhJBjg&riu=http%3a%2f%2f1000logos.net%2fwp-content%2fuploads%2f2016%2f10%2fapple-emblem.jpg&ehk=oZn9asOkaHE7jnq1KK2bsdCC3PpQvx52gN9eXh7e294%3d&risl=&pid=ImgRaw&r=0"
     },
     {
-      "brand_name": "Samsung",
+      "brand": "Samsung",
       "image_url": "https://th.bing.com/th/id/OIP.S8NcePxe50qZ-kIYhzubGQHaEA?pid=ImgDet&rs=1"
     },
     {
-      "brand_name": "Xiaomi",
+      "brand": "Xiaomi",
       "image_url": "https://th.bing.com/th/id/OIP.pfX07Fl1YBJ0HflYVKgaQwHaD4?pid=ImgDet&rs=1"
     },
     {
-      "brand_name": "Infinix",
+      "brand": "Infinix",
       "image_url": "https://bl-i.thgim.com/public/news/7gk5z8/article65615786.ece/alternates/FREE_1200/infinix.jpg"
     },
     {
-      "brand_name": "itel",
+      "brand": "itel",
       "image_url": "https://mobitrends.co.ke/wp-content/uploads/2018/04/iTel-Logo.jpg"
     },
     {
-      "brand_name": "Symphony",
+      "brand": "Symphony",
       "image_url": "https://th.bing.com/th/id/OIP.mvOeOzU4YkyNfzjYcSwCvwAAAA?pid=ImgDet&rs=1"
     }
   ]

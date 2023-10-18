@@ -1,27 +1,17 @@
 
 import { useLoaderData } from 'react-router-dom';
-import React, { useEffect } from 'react';
-import Splide from '@splidejs/splide';
-import '@splidejs/splide/dist/css/themes/splide-default.min.css';
+;
+import PhoneCard from './PhoneCard';
 
 
 
 const Phone = () => {
-  const data = useLoaderData()
 
+  const data = useLoaderData()
   console.log(data);
 
-  const SimpleSlider = () => {
-    useEffect(() => {
-      // Initialize the Splide slider
-      new Splide('.splide', {
-        type: 'slide',
-        perPage: 1,
-        autoplay: true,
-        pauseOnHover: true,
-      }).mount();
-    }, []);
-  }
+
+
 
 
 
@@ -29,36 +19,44 @@ const Phone = () => {
 
   return (
     <>
-    {
-      data.map(item=><>
-      
-      <div className='flex  justify-center items-center lg:h-[70vh] mt-20'>
-        <div className="splide">
-          <div className="splide__track">
-            <ul className="splide__list">
-              <li className="splide__slide">
-                <div>
-                  <div className="card lg:card-side bg-base-100 shadow-xl">
-                    <figure className='h-60 m-5'><img className='w-full h-full' src={item.photo} alt="Album" /></figure>
-                    <div className="card-body">
-                      <h2 className="card-title">{item.name}</h2>
-                      <p>{item.price}</p>
-                      <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Listen</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
+      <div className="carousel w-full">
+        <div id="slide1" className="carousel-item relative w-full">
+          <img src="/images/stock/photo-1625726411847-8cbb60cc71e6.jpg" className="w-full" />
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide4" className="btn btn-circle">❮</a>
+            <a href="#slide2" className="btn btn-circle">❯</a>
+          </div>
+        </div>
+        <div id="slide2" className="carousel-item relative w-full">
+          <img src="/images/stock/photo-1609621838510-5ad474b7d25d.jpg" className="w-full" />
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide1" className="btn btn-circle">❮</a>
+            <a href="#slide3" className="btn btn-circle">❯</a>
+          </div>
+        </div>
+        <div id="slide3" className="carousel-item relative w-full">
+          <img src="/images/stock/photo-1414694762283-acccc27bca85.jpg" className="w-full" />
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide2" className="btn btn-circle">❮</a>
+            <a href="#slide4" className="btn btn-circle">❯</a>
+          </div>
+        </div>
+        <div id="slide4" className="carousel-item relative w-full">
+          <img src="/images/stock/photo-1665553365602-b2fb8e5d1707.jpg" className="w-full" />
+          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+            <a href="#slide3" className="btn btn-circle">❮</a>
+            <a href="#slide1" className="btn btn-circle">❯</a>
           </div>
         </div>
       </div>
 
-      </>)
-    }
-     
-      <SimpleSlider />
+      <div className='grid lg:grid-cols-2 grid-cols-1 md:grid-cols-1 gap-10 w-2/3 mx-auto'>
+
+        {
+          data.map(items => <PhoneCard key={items._id} item={items}></PhoneCard>)
+        }
+      </div>
+
     </>
   );
 };

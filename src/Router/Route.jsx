@@ -25,7 +25,7 @@ import ErrorPage from "../Components/Pages/ErrorPage/ErrorPage";
             loader:()=>fetch("http://localhost:5000/product")
         },
         {
-          path: "/:brand",
+          path: "/brand/:brand",
           element:<PrivateRoute><Phone></Phone></PrivateRoute>,
           loader:({params})=>fetch(`http://localhost:5000/product/${params.brand}`)
      

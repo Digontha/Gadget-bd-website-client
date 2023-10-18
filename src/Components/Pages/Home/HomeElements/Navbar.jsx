@@ -64,7 +64,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <img className="w-10 h-10 rounded-full" src="https://vignette2.wikia.nocookie.net/carrington/images/e/e5/Memo_logo.png/revision/latest?cb=20150331144105" alt="" />
-            <a className=" lg:text-2xl text-purple-600 font-bold text normal-case ml-2 ">MobileBD</a>
+            <a className=" lg:text-2xl text-purple-600 font-bold text normal-case ml-2 ">GadgetBD</a>
         </div>
         <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
