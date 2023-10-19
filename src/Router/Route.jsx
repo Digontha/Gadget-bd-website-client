@@ -40,7 +40,8 @@ import Update from "../Components/Pages/Home/PhoneCard/Update";
         ,
         {
           path:"/myCart",
-          element:<PrivateRoute><MyCart></MyCart></PrivateRoute>
+          element:<PrivateRoute><MyCart></MyCart></PrivateRoute>,
+          loader:()=>fetch("http://localhost:5000/details/brand_name/id/cart")
         }
         ,
         {

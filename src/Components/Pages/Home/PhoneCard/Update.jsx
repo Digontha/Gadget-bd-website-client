@@ -51,7 +51,7 @@ const Update = () => {
 
                     <div className="lg:flex gap-4 mb-5">
                         <input type="text" defaultValue={data.name} placeholder="name" name="name" className="input input-bordered w-full " />
-                        <select name="brand" className="select w-full max-w-xs">
+                        <select name="brand"  className="select w-full max-w-xs">
                             <option disabled selected>Pick a brand</option>
                             <option value="Apple">Apple</option>
                             <option value="Samsung">Samsung</option>

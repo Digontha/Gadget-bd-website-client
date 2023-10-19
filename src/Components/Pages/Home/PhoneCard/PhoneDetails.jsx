@@ -1,22 +1,41 @@
 import { useLoaderData } from "react-router-dom";
+import swal from "sweetalert";
 
 
 const PhoneDetails = () => {
-    const data = useLoaderData()
-    console.log(data);
+    const allData = useLoaderData()
+    console.log(allData);
+
+    const handleCart = () =>{
+        
+    fetch(`http://localhost:5000/details/brand_name/id/cart`,{
+        
+    method:"POST",
+    headers:{
+        "content-type": "application/json",
+    },
+    body: JSON.stringify(allData),
+
+    })
+    .then(res=>res.json())
+    .then(data =>{
+        console.log(data);
+        swal("Good job!", "Your product add to cart successfully!", "success");
+    })
+    }
 
     return (
         <div className="lg:w-[600px] mx-auto py-10">
             
               
                     <div className=" lg:card-side bg-white shadow-2xl ">
-                        <figure><img className="lg:w-full" src={data.img} alt="Album" /></figure>
+                        <figure><img className="lg:w-full" src={allData.img} alt="Album" /></figure>
                         <div className="card-body">
-                            <h2 className="card-title">{data.name}</h2>
-                            <p>{data.description}</p>
-                            <p>${data.price}</p>
+                            <h2 className="card-title">{allData.name}</h2>
+                            <p>{allData.description}</p>
+                            <p>${allData.price}</p>
                             <div className="card-actions">
-                                <button className="btn btn-success w-full">Add to cart</button>
+                                <button onClick={handleCart} className="btn btn-success w-full">Add to cart</button>
                             </div>
                         </div>
                     </div>
