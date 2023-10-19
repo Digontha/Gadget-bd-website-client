@@ -29,7 +29,7 @@ const PhoneDetails = () => {
             
               
                     <div className=" lg:card-side bg-white shadow-2xl ">
-                        <figure><img className="lg:w-full" src={allData.img} alt="Album" /></figure>
+                        <figure className='h-60 m-5'><img className='w-full h-full' src={allData.img} alt="Album" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{allData.name}</h2>
                             <p>{allData.description}</p>
