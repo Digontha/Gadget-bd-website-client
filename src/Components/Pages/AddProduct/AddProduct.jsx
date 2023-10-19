@@ -24,8 +24,8 @@ const AddProduct = () => {
             body: JSON.stringify(allProduct)
         })
             .then(res => res.json())
-            .then(data => {
-                console.log(data);
+            .then(() => {
+                
                 swal("Good job!", "Your product add successfully!", "success");
                 form.reset();
             })

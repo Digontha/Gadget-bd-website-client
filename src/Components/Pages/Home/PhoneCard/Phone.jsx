@@ -9,13 +9,13 @@ import { useEffect, useState } from 'react';
 const Phone = () => {
 
   const [adData,setAdData]=useState([])
-// console.log(adData);
+
  const [filter,setFilter]=useState()
   const data = useLoaderData()
-  // console.log(data);
+
 
   const id = useParams()
-  console.log(id.brand);
+ 
   
 
  useEffect(()=>{
@@ -31,9 +31,6 @@ useEffect(()=>{
   const filter = adData.filter(item=>item.brand==id.brand)
   setFilter(filter);
 },[adData,id.brand])
-
-//  const map = data.map(col=>console.log(col.brand_name))
-//  const adMap = adData.map(ad=>console.log(ad.brand))
 
 
 

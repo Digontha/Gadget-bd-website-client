@@ -5,7 +5,7 @@ import swal from "sweetalert";
 
 const MyCart = () => {
     const cartData = useLoaderData()
-    console.log(cartData);
+  
     const [Data,setData]=useState(cartData)
 
     const handleDelete=(_id)=>{
@@ -14,8 +14,8 @@ const MyCart = () => {
                 method: 'DELETE',
               })
               .then(res=>res.json())
-              .then(data =>{
-                console.log(data);
+              .then(() =>{
+                
                 swal("Good job!", "Your product delete successfully!", "success");
                 
                 const remaining = Data.filter(item => item._id !== _id)

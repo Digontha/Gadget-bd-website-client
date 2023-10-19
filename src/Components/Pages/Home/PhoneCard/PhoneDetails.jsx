@@ -4,7 +4,7 @@ import swal from "sweetalert";
 
 const PhoneDetails = () => {
     const allData = useLoaderData()
-    console.log(allData);
+    
 
     const handleCart = () =>{
         
@@ -18,8 +18,8 @@ const PhoneDetails = () => {
 
     })
     .then(res=>res.json())
-    .then(data =>{
-        console.log(data);
+    .then(() =>{
+        
         swal("Good job!", "Your product add to cart successfully!", "success");
     })
     }

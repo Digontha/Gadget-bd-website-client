@@ -5,7 +5,7 @@ import swal from "sweetalert";
 const Update = () => {
 
     const data = useLoaderData()
-    console.log(data);
+    
 
     const handleUpdateProduct = (e) => {
         e.preventDefault();
@@ -19,7 +19,7 @@ const Update = () => {
         const img = form.img.value;
 
         const allProduct = { name, brand_name, type, price, description, rating, img };
-        console.log(allProduct);
+        
          
         fetch(`http://localhost:5000/product/brand_name/${data._id}`,{
             method:"PUT",
@@ -30,7 +30,7 @@ const Update = () => {
         })
         .then(res=>res.json())
         .then(data=>{
-            console.log(data);
+            
             if(data.modifiedCount>0){
                 swal("Good job!", "You update successfully", "success");
                 
