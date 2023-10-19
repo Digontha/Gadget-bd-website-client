@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 
 const PhoneCard = ({ item }) => {
-  console.log(item);
+  // console.log(item);
   const {_id, name, brand_name, price, type, rating, img } = item || {};
 
-  console.log(name, brand_name, price, type, rating, img);
+  // console.log(name, brand_name, price, type, rating, img);
 
   return (
     <>

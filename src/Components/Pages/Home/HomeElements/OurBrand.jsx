@@ -9,8 +9,9 @@ const OurBrand = ({ data }) => {
     console.log(data);
     const [singleData, setSingleData] = useState([])
     const [items, setItem] = useState([])
-
+        console.log(items);
     console.log(singleData);
+    
     const handleData = (e) => {
         const brandElement = e.target.closest('.card').querySelector('h2');
         const brandName = brandElement.innerText;
@@ -26,6 +27,7 @@ const OurBrand = ({ data }) => {
         fetch("data.json")
             .then(res => res.json())
             .then(data => setItem(data))
+           
     }, [])
 
 

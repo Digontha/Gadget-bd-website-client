@@ -1,17 +1,39 @@
 
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
 
 import PhoneCard from './PhoneCard';
+import { useEffect, useState } from 'react';
 
 
 
 const Phone = () => {
 
+  const [adData,setAdData]=useState([])
+// console.log(adData);
+ const [filter,setFilter]=useState()
   const data = useLoaderData()
-  console.log(data);
+  // console.log(data);
 
+  const id = useParams()
+  console.log(id.brand);
+  
 
+ useEffect(()=>{
+        fetch("/data.json")
+        .then(res => res.json())
+        .then(Data => setAdData(Data))
 
+        
+ },[])
+
+ 
+useEffect(()=>{
+  const filter = adData.filter(item=>item.brand==id.brand)
+  setFilter(filter);
+},[adData,id.brand])
+
+//  const map = data.map(col=>console.log(col.brand_name))
+//  const adMap = adData.map(ad=>console.log(ad.brand))
 
 
 
@@ -20,29 +42,34 @@ const Phone = () => {
   return (
     <>
    
-    <div className="carousel h-[80vh]">
-        <div id="slide1" className="carousel-item relative w-full">
-          <img src="https://th.bing.com/th/id/R.a205972f4f87a7b787f648ff55049889?rik=7Ymt%2bOxSB%2fTR1w&pid=ImgRaw&r=0" className="w-full" />
+    {
+      filter?.map((i,inx) => <div key={inx}>
+                   <div className="carousel h-[80vh] w-full">
+        <div id="slide1" className="carousel-item relative w-full ">
+          <img src={i.adImg_1} className="w-full" />
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide4" className="btn btn-circle">❮</a>
             <a href="#slide2" className="btn btn-circle">❯</a>
           </div>
         </div>
         <div id="slide2" className="carousel-item relative w-full">
-          <img src="https://www.tvadsongs.uk/wp-content/uploads/iphone-12-pro-5g-advert-8211-the-most-powerful-iphone-ever-yO191CBy7GI.jpg" className="w-full" />
+          <img src={i.adImg_2} className="w-full" />
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide1" className="btn btn-circle">❮</a>
             <a href="#slide3" className="btn btn-circle">❯</a>
           </div>
         </div>
         <div id="slide3" className="carousel-item relative w-full">
-          <img src="https://th.bing.com/th/id/OIP.cdVQronqJpg4qjs24p2H4AHaDe?pid=ImgDet&w=1280&h=600&rs=1" className="w-full" />
+          <img src={i.adImg_3} className="w-full" />
           <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
             <a href="#slide2" className="btn btn-circle">❮</a>
             <a href="#slide4" className="btn btn-circle">❯</a>
           </div>
         </div>
       </div>
+
+      </div>)
+    }
   
       
 
