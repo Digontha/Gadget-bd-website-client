@@ -1,4 +1,8 @@
 
+- client live site link :https://assignment-10-7d2ff.web.app/
+
+
+
 Website The project I created is a shop website. A store that carries a variety of band items.
 - Firstly, my projector has a login and registration system through which users can login and register.
 - Thirdly I have an add product route where the user can then add a product of their choice.
