@@ -16,7 +16,7 @@ const AddProduct = () => {
         const allProduct = { name, brand_name, type, price, description, rating, img };
         console.log(allProduct);
 
-        fetch("http://localhost:5000/product", {
+        fetch("https://product-zeta-eight.vercel.app/product", {
             method: "POST",
             headers: {
                 "content-type": "application/json",

@@ -24,12 +24,12 @@ import Update from "../Components/Pages/Home/PhoneCard/Update";
         {
             path: "/",
             element:<Home></Home>,
-            loader:()=>fetch("http://localhost:5000/product")
+            loader:()=>fetch("https://product-zeta-eight.vercel.app/product")
         },
         {
           path: "/brand/:brand",
           element:<PrivateRoute><Phone></Phone></PrivateRoute>,
-          loader:({params})=>fetch(`http://localhost:5000/product/${params.brand}`)
+          loader:({params})=>fetch(`https://product-zeta-eight.vercel.app/product/${params.brand}`)
      
         }
         ,
@@ -41,20 +41,20 @@ import Update from "../Components/Pages/Home/PhoneCard/Update";
         {
           path:"/myCart",
           element:<PrivateRoute><MyCart></MyCart></PrivateRoute>,
-          loader:()=>fetch("http://localhost:5000/details/brand_name/id/cart")
+          loader:()=>fetch("https://product-zeta-eight.vercel.app/details/brand_name/id/cart")
         }
         ,
         {
               path:"/details/brand_name/:id",
               element:<PrivateRoute><PhoneDetails></PhoneDetails></PrivateRoute>,
-              loader:({params})=>fetch(`http://localhost:5000/product/brand_name/${params.id}`)
+              loader:({params})=>fetch(`https://product-zeta-eight.vercel.app/product/brand_name/${params.id}`)
 
         }
         ,
         {
               path:"/update/brand_name/:id",
               element:<Update></Update>,
-              loader:({params})=>fetch(`http://localhost:5000/product/brand_name/${params.id}`)
+              loader:({params})=>fetch(`https://product-zeta-eight.vercel.app/product/brand_name/${params.id}`)
 
         }
         ,

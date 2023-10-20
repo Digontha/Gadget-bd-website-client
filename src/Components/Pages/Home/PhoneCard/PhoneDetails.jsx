@@ -8,7 +8,7 @@ const PhoneDetails = () => {
 
     const handleCart = () =>{
         
-    fetch(`http://localhost:5000/details/brand_name/id/cart`,{
+    fetch(`https://product-zeta-eight.vercel.app/details/brand_name/id/cart`,{
         
     method:"POST",
     headers:{

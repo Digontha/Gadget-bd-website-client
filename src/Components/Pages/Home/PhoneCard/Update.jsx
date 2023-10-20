@@ -21,7 +21,7 @@ const Update = () => {
         const allProduct = { name, brand_name, type, price, description, rating, img };
         
          
-        fetch(`http://localhost:5000/product/brand_name/${data._id}`,{
+        fetch(`https://product-zeta-eight.vercel.app/product/brand_name/${data._id}`,{
             method:"PUT",
             headers:{
                 "content-type": "application/json"

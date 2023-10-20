@@ -10,7 +10,7 @@ const MyCart = () => {
 
     const handleDelete=(_id)=>{
               console.log(_id);
-              fetch(`http://localhost:5000/details/brand_name/id/cart/${_id}`,{
+              fetch(`https://product-zeta-eight.vercel.app/details/brand_name/id/cart/${_id}`,{
                 method: 'DELETE',
               })
               .then(res=>res.json())
